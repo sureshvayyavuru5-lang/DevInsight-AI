@@ -1,0 +1,35 @@
+import "../styles/Sidebar.css";
+
+
+function Sidebar() {
+
+  return (
+
+    <div className="sidebar">
+
+      <h2>🚀 DevInsight AI</h2>
+
+
+      <ul>
+
+        <li>🏠 Dashboard</li>
+
+        <li>👤 Profile</li>
+
+        <li>📁 Repositories</li>
+
+        <li>📊 Analytics</li>
+
+        <li>⚙ Settings</li>
+
+      </ul>
+
+
+    </div>
+
+  );
+
+}
+
+
+export default Sidebar;

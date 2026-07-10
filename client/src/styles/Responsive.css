@@ -1,0 +1,41 @@
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+
+  .app-layout {
+    flex-direction: column;
+  }
+
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+
+  .dashboard {
+    padding: 15px;
+  }
+
+
+  .profile-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    padding: 20px;
+  }
+
+
+  .repo-card {
+    width: 100%;
+  }
+
+
+}

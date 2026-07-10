@@ -1,0 +1,19 @@
+.error-box {
+  background: #fee2e2;
+  border-left: 5px solid #ef4444;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+.error-box h3 {
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+
+.error-box p {
+  color: #7f1d1d;
+}

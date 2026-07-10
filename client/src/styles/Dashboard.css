@@ -1,0 +1,364 @@
+/* ===========================
+   Dashboard
+=========================== */
+
+.dashboard {
+  flex: 1;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+
+/* ===========================
+   Main Layout
+=========================== */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ===========================
+   Profile Card
+=========================== */
+
+.profile-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  margin: 25px 0;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.profile-image {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:4px solid #2563eb;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.profile-card h2 {
+  color:#1e293b;
+  margin-bottom:10px;
+}
+
+.profile-card p {
+  color:#64748b;
+}
+
+
+/* ===========================
+   Profile Stats
+=========================== */
+
+.profile-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin:30px 0;
+}
+
+
+/* ===========================
+   GitHub Button
+=========================== */
+
+.profile-btn {
+  display:inline-block;
+  margin-top:10px;
+  background:#2563eb;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+.profile-btn:hover {
+  background:#1d4ed8;
+}
+
+
+/* ===========================
+   Repository Section
+=========================== */
+
+.repositories {
+  margin-top:40px;
+}
+
+.repositories h2 {
+  margin-bottom:20px;
+  color:#1e293b;
+}
+
+
+/* ===========================
+   Repository Card
+=========================== */
+
+.repo-card {
+
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+
+.repo-card:hover {
+  transform:translateY(-5px);
+}
+
+
+.repo-card h3 {
+  color:#2563eb;
+  margin-bottom:15px;
+}
+
+
+.repo-card p {
+  color:#475569;
+  margin:8px 0;
+}
+
+
+/* ===========================
+   Repository Button
+=========================== */
+
+.repo-btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 18px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+
+
+/* ===========================
+   Chart
+=========================== */
+
+.chart-container {
+
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin:25px 0;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+}
+
+
+/* ===========================
+   Search Bar
+=========================== */
+
+.search-bar {
+
+  display:flex;
+  gap:10px;
+  margin:25px 0;
+
+}
+
+
+.search-bar input {
+
+  flex:1;
+  padding:12px;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  font-size:16px;
+
+}
+
+
+.search-bar button {
+
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+
+}
+
+
+/* ===========================
+   AI Summary
+=========================== */
+
+.ai-summary {
+
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  margin:25px 0;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+}
+
+
+.ai-summary h2 {
+
+  color:#2563eb;
+  margin-bottom:15px;
+
+}
+
+
+.ai-summary p {
+
+  color:#475569;
+  line-height:1.8;
+  font-size:16px;
+
+}
+
+
+
+/* =================================================
+   🌙 DARK MODE
+================================================= */
+
+
+.app.dark .dashboard {
+
+  background:#020617;
+  color:white;
+
+}
+
+
+
+/* Profile Dark */
+
+.app.dark .profile-card {
+
+  background:#1e293b;
+  color:white;
+
+}
+
+
+.app.dark .profile-card h2 {
+
+  color:#38bdf8;
+
+}
+
+
+.app.dark .profile-card p {
+
+  color:#cbd5e1;
+
+}
+
+
+
+/* Repo Dark */
+
+.app.dark .repo-card {
+
+  background:#1e293b;
+  color:white;
+
+}
+
+
+.app.dark .repo-card h3 {
+
+  color:#38bdf8;
+
+}
+
+
+.app.dark .repo-card p {
+
+  color:#cbd5e1;
+
+}
+
+
+
+/* Chart Dark */
+
+.app.dark .chart-container {
+
+  background:#1e293b;
+
+}
+
+
+
+/* Repository Heading */
+
+.app.dark .repositories h2 {
+
+  color:white;
+
+}
+
+
+
+/* Search Dark */
+
+.app.dark .search-bar input {
+
+  background:#1e293b;
+  color:white;
+  border:1px solid #475569;
+
+}
+
+
+
+/* AI Summary Dark */
+
+.app.dark .ai-summary {
+
+  background:#1e293b;
+  color:white;
+
+}
+
+
+.app.dark .ai-summary h2 {
+
+  color:#38bdf8;
+
+}
+
+
+.app.dark .ai-summary p {
+
+  color:#cbd5e1;
+
+}
+.pdf-btn{
+  background:#16a34a;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.pdf-btn:hover{
+  background:#15803d;
+}
