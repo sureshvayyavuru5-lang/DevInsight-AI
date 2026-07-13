@@ -17,6 +17,9 @@ import "../styles/Dashboard.css";
 import "../styles/Responsive.css";
 
 function Dashboard() {
+  // ✅ Railway Backend URL
+  const API_URL = "https://devinsight-ai-production.up.railway.app";
+
   const [repos, setRepos] = useState([]);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,7 +31,7 @@ function Dashboard() {
 
     try {
       const profileResponse = await fetch(
-        `http://localhost:5000/github/${user}`
+        `${API_URL}/github/${user}`
       );
 
       if (!profileResponse.ok) {
@@ -39,7 +42,7 @@ function Dashboard() {
       setProfile(profileData);
 
       const repoResponse = await fetch(
-        `http://localhost:5000/repos/${user}`
+        `${API_URL}/repos/${user}`
       );
 
       const repoData = await repoResponse.json();
