@@ -1,0 +1,30 @@
+.ai-summary {
+  background: white;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border-left: 5px solid #2563eb;
+}
+
+.ai-summary h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.ai-summary p {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.app-layout.dark .ai-summary {
+  background: #1e293b;
+}
+
+.app-layout.dark .ai-summary h2 {
+  color: #60a5fa;
+}
+
+.app-layout.dark .ai-summary p {
+  color: #e2e8f0;
+}

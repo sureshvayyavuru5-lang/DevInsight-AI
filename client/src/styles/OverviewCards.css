@@ -1,0 +1,45 @@
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.overview-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+}
+
+.overview-card h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.overview-card h2 {
+  color: #2563eb;
+  margin: 10px 0;
+}
+
+.overview-card p {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Dark Mode */
+
+.app-layout.dark .overview-card {
+  background: #1e293b;
+}
+
+.app-layout.dark .overview-card h2,
+.app-layout.dark .overview-card p {
+  color: white;
+}

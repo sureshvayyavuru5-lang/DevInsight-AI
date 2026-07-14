@@ -1,0 +1,23 @@
+.chart-container {
+  background: #ffffff;
+  margin: 25px 0;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.chart-container h2 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+/* Dark Mode */
+
+.app-layout.dark .chart-container {
+  background: #1e293b;
+}
+
+.app-layout.dark .chart-container h2 {
+  color: #60a5fa;
+}

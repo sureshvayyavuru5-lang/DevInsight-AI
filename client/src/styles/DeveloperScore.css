@@ -1,0 +1,45 @@
+.developer-score {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 25px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.developer-score h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.developer-score h1 {
+  font-size: 45px;
+  color: #16a34a;
+}
+
+.strengths,
+.suggestions {
+  margin-top: 20px;
+}
+
+.strengths ul,
+.suggestions ul {
+  padding-left: 20px;
+}
+
+.strengths li,
+.suggestions li {
+  margin: 8px 0;
+}
+
+.app-layout.dark .developer-score {
+  background: #1e293b;
+  color: white;
+}
+
+.app-layout.dark .developer-score h2 {
+  color: #60a5fa;
+}
+
+.app-layout.dark .developer-score h1 {
+  color: #4ade80;
+}

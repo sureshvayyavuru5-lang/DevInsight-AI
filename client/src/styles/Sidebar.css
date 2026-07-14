@@ -1,35 +1,56 @@
-import "../styles/Sidebar.css";
-
-
-function Sidebar() {
-
-  return (
-
-    <div className="sidebar">
-
-      <h2>🚀 DevInsight AI</h2>
-
-
-      <ul>
-
-        <li>🏠 Dashboard</li>
-
-        <li>👤 Profile</li>
-
-        <li>📁 Repositories</li>
-
-        <li>📊 Analytics</li>
-
-        <li>⚙ Settings</li>
-
-      </ul>
-
-
-    </div>
-
-  );
-
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-export default Sidebar;
+.logo h2 {
+  margin: 0;
+  color: #60a5fa;
+}
+
+.logo p {
+  margin-top: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.menu li {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu li:hover {
+  background: #2563eb;
+  transform: translateX(8px);
+}
+
+.sidebar-footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  padding-top: 20px;
+  border-top: 1px solid #334155;
+}

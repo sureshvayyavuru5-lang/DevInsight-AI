@@ -5,11 +5,13 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  CartesianGrid
+  CartesianGrid,
+  Legend,
 } from "recharts";
 
-function Chart({ repos }) {
+import "../styles/Chart.css";
 
+function Chart({ repos }) {
   const data = repos.map((repo) => ({
     name: repo.name,
     stars: repo.stargazers_count,
@@ -17,19 +19,18 @@ function Chart({ repos }) {
 
   return (
     <div className="chart-container">
+      <h2>⭐ Repository Stars</h2>
 
       <ResponsiveContainer width="100%" height={350}>
-
         <BarChart
           data={data}
           margin={{
             top: 20,
             right: 20,
             left: 20,
-            bottom: 50,
+            bottom: 60,
           }}
         >
-
           <CartesianGrid strokeDasharray="3 3" />
 
           <XAxis
@@ -44,16 +45,16 @@ function Chart({ repos }) {
 
           <Tooltip />
 
+          <Legend />
+
           <Bar
             dataKey="stars"
             fill="#2563eb"
             radius={[8, 8, 0, 0]}
+            animationDuration={1200}
           />
-
         </BarChart>
-
       </ResponsiveContainer>
-
     </div>
   );
 }

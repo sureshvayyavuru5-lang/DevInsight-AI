@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { jsPDF } from "jspdf";
 
-import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import RepoCard from "../components/RepoCard";
 import SearchBar from "../components/SearchBar";
 import ProfileCard from "../components/ProfileCard";
 import Loader from "../components/Loader";
@@ -12,45 +11,60 @@ import Chart from "../components/Chart";
 import LanguageChart from "../components/LanguageChart";
 import TopRepository from "../components/TopRepository";
 import AISummary from "../components/AISummary";
+import RepoCard from "../components/RepoCard";
+import Sidebar from "../components/Sidebar";
+import OverviewCards from "../components/OverviewCards";
+import DeveloperScore from "../components/DeveloperScore";
 
 import "../styles/Dashboard.css";
 import "../styles/Responsive.css";
 
-function Dashboard() {
-  // ✅ Railway Backend URL
+  function Dashboard() {
+  const { darkMode } = useContext(ThemeContext);
+
   const API_URL = "https://devinsight-ai-production.up.railway.app";
 
-  const [repos, setRepos] = useState([]);
   const [profile, setProfile] = useState(null);
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchRepos = async (user) => {
+  const fetchRepos = async (username) => {
+    if (!username) return;
+
     setLoading(true);
     setError("");
 
     try {
-      const profileResponse = await fetch(
-        `${API_URL}/github/${user}`
-      );
+      // Profile
+      const profileRes = await fetch(`${API_URL}/github/${username}`);
 
-      if (!profileResponse.ok) {
+      if (!profileRes.ok) {
         throw new Error("GitHub user not found");
       }
 
-      const profileData = await profileResponse.json();
+      const profileData = await profileRes.json();
       setProfile(profileData);
 
-      const repoResponse = await fetch(
-        `${API_URL}/repos/${user}`
-      );
+      // Repositories
+      const repoRes = await fetch(`${API_URL}/repos/${username}`);
 
-      const repoData = await repoResponse.json();
+      if (!repoRes.ok) {
+        throw new Error("Unable to fetch repositories");
+      }
 
-      setRepos(Array.isArray(repoData) ? repoData : []);
+      const repoData = await repoRes.json();
+
+      if (Array.isArray(repoData)) {
+        setRepos(repoData);
+      } else {
+        setRepos([]);
+      }
     } catch (err) {
       console.error(err);
-      setError("Unable to connect to backend.");
+
+      setError(err.message || "Something went wrong.");
+
       setProfile(null);
       setRepos([]);
     } finally {
@@ -68,16 +82,16 @@ function Dashboard() {
     const doc = new jsPDF();
 
     doc.setFontSize(20);
-    doc.text("DevInsight AI - GitHub Report", 20, 20);
+    doc.text("DevInsight AI Report", 20, 20);
 
     doc.setFontSize(14);
-    doc.text(`Name: ${profile.name || profile.login}`, 20, 40);
-    doc.text(`Username: ${profile.login}`, 20, 50);
-    doc.text(`Followers: ${profile.followers}`, 20, 60);
-    doc.text(`Following: ${profile.following}`, 20, 70);
-    doc.text(`Repositories: ${profile.public_repos}`, 20, 80);
+    doc.text(`Name : ${profile.name || profile.login}`, 20, 40);
+    doc.text(`Username : ${profile.login}`, 20, 50);
+    doc.text(`Followers : ${profile.followers}`, 20, 60);
+    doc.text(`Following : ${profile.following}`, 20, 70);
+    doc.text(`Repositories : ${profile.public_repos}`, 20, 80);
 
-    doc.text("Top Repositories:", 20, 100);
+    doc.text("Top Repositories", 20, 100);
 
     repos.slice(0, 5).forEach((repo, index) => {
       doc.text(`${index + 1}. ${repo.name}`, 25, 115 + index * 10);
@@ -87,26 +101,26 @@ function Dashboard() {
   };
 
   return (
-    <div className="app-layout">
-      <Sidebar />
+  <div className={darkMode ? "app-layout dark" : "app-layout"}>
+    <Sidebar />
 
-      <div className="dashboard">
-        <Navbar />
+    <div className="dashboard">
+      <Navbar />
 
         <SearchBar onSearch={fetchRepos} />
 
-        {error && <ErrorMessage message={error} />}
         {loading && <Loader />}
+
+        {error && <ErrorMessage message={error} />}
 
         {!loading && !error && profile && (
           <>
             <button className="pdf-btn" onClick={downloadReport}>
               📄 Download Report
             </button>
+            <OverviewCards repos={repos} />
 
             <ProfileCard profile={profile} />
-
-            <h2>📊 Repository Stars Analytics</h2>
 
             <Chart repos={repos} />
 
@@ -114,10 +128,8 @@ function Dashboard() {
 
             <TopRepository repos={repos} />
 
-            <AISummary
-              profile={profile}
-              repos={repos}
-            />
+            <AISummary profile={profile} repos={repos} />
+            <DeveloperScore repos={repos} />
 
             <div className="repositories">
               <h2>📁 Repositories</h2>

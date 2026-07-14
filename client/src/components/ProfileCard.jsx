@@ -1,4 +1,5 @@
 import StatCard from "./StatCard";
+import "../styles/ProfileCard.css";
 import "../styles/StatCard.css";
 
 function ProfileCard({ profile }) {

@@ -1,0 +1,89 @@
+.repo-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 5px solid #2563eb;
+}
+
+.repo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+}
+
+.repo-card h3 {
+  margin: 0 0 15px;
+  color: #2563eb;
+  font-size: 22px;
+}
+
+.repo-card p {
+  margin: 10px 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.repo-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.repo-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+.app-layout.dark .repo-card {
+  background: #1e293b;
+  border-left: 5px solid #60a5fa;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.app-layout.dark .repo-card h3 {
+  color: #60a5fa;
+}
+
+.app-layout.dark .repo-card p {
+  color: #cbd5e1;
+}
+
+.app-layout.dark .repo-btn {
+  background: #3b82f6;
+}
+
+.app-layout.dark .repo-btn:hover {
+  background: #2563eb;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+  .repo-card {
+    padding: 16px;
+  }
+
+  .repo-card h3 {
+    font-size: 18px;
+  }
+
+  .repo-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

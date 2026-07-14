@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import "../styles/AISummary.css";
 
 function AISummary({ profile, repos }) {
-  const [summary, setSummary] = useState("Generating AI Summary...");
+  const [summary, setSummary] = useState("🤖 Generating AI Summary...");
 
   useEffect(() => {
     if (!profile || repos.length === 0) return;
@@ -23,21 +24,30 @@ function AISummary({ profile, repos }) {
           .join(", ");
 
         const prompt = `
-Summarize this GitHub developer in 3-4 lines.
+You are an expert GitHub reviewer.
+
+Analyze this GitHub profile and write:
+- 3 to 5 concise sentences
+- Mention strengths
+- Mention primary technologies
+- Mention development focus
+- Keep it professional
 
 Name: ${profile.name || profile.login}
-Bio: ${profile.bio}
-Repositories: ${repoNames}
 
-Mention their likely skills and development focus.
+Bio:
+${profile.bio || "No bio"}
+
+Repositories:
+${repoNames}
 `;
 
         const result = await model.generateContent(prompt);
 
         setSummary(result.response.text());
       } catch (error) {
-        console.log(error);
-        setSummary("Unable to generate AI summary.");
+        console.error(error);
+        setSummary("❌ Unable to generate AI summary.");
       }
     };
 

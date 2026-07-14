@@ -7,17 +7,14 @@ import {
   Legend,
 } from "recharts";
 
+import "../styles/Chart.css";
+
 function LanguageChart({ repos }) {
   const languageCount = {};
 
   repos.forEach((repo) => {
     const lang = repo.language || "Unknown";
-
-    if (languageCount[lang]) {
-      languageCount[lang]++;
-    } else {
-      languageCount[lang] = 1;
-    }
+    languageCount[lang] = (languageCount[lang] || 0) + 1;
   });
 
   const data = Object.keys(languageCount).map((lang) => ({
@@ -48,10 +45,11 @@ function LanguageChart({ repos }) {
             nameKey="name"
             outerRadius={120}
             label
+            animationDuration={1200}
           >
             {data.map((entry, index) => (
               <Cell
-                key={index}
+                key={entry.name}
                 fill={COLORS[index % COLORS.length]}
               />
             ))}

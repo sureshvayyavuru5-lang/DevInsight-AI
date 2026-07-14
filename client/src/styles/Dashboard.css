@@ -362,3 +362,39 @@
 .pdf-btn:hover{
   background:#15803d;
 }
+/* ===========================
+   DARK MODE
+=========================== */
+
+.app-layout.dark {
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+.app-layout.dark .dashboard {
+  background-color: #121212;
+}
+
+.app-layout.dark h1,
+.app-layout.dark h2,
+.app-layout.dark h3,
+.app-layout.dark p {
+  color: white;
+}
+.dashboard {
+  flex: 1;
+  margin-left: 250px;
+  padding: 25px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.app-layout {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.app-layout.dark {
+  background: #0f172a;
+}

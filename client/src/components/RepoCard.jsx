@@ -1,13 +1,21 @@
+import "../styles/RepoCard.css";
+
 function RepoCard({ repo }) {
   return (
     <div className="repo-card">
       <h3>📁 {repo.name}</h3>
 
-      <p>⭐ Stars: {repo.stargazers_count}</p>
+      <p>
+        ⭐ <strong>Stars:</strong> {repo.stargazers_count}
+      </p>
 
-      <p>🍴 Forks: {repo.forks_count}</p>
+      <p>
+        🍴 <strong>Forks:</strong> {repo.forks_count}
+      </p>
 
-      <p>💻 Language: {repo.language || "Not Available"}</p>
+      <p>
+        💻 <strong>Language:</strong> {repo.language || "Not Available"}
+      </p>
 
       <a
         href={repo.html_url}
@@ -15,7 +23,7 @@ function RepoCard({ repo }) {
         rel="noreferrer"
         className="repo-btn"
       >
-        🔗 Open Repository
+        🔗 View Repository
       </a>
     </div>
   );
